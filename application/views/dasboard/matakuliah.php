@@ -86,34 +86,9 @@
 				<li><a href="<?= base_url('dasboard') ?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 				<li><a href="<?= base_url('dasboard/jurusan') ?>"><i class="fa fa-graduation-cap"></i> <span>Jurussan</span></a></li>
 				<li><a href="<?= base_url('dasboard/pengajar') ?>"><i class="fa fa-users"></i> <span>Pengajar</span></a></li>
-				<!-- <li class="treeview">
-					<a href="#">
-						<i class="fa fa-book"></i>
-						<span>Mata Kuliah</span>
-						<span class="pull-right-container">
-							<i class="fa fa-angle-left pull-right"></i>
-						</span>
-					</a>
-					<ul class="treeview-menu">
-						<li>
-							<a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i>Mesin</a>
-						</li>
-						<li>
-							<a href="../charts/morris.html"><i class="fa fa-circle-o"></i>Elektro</a>
-						</li>
-						<li>
-							<a href="../charts/flot.html"><i class="fa fa-circle-o"></i>Sipil</a>
-						</li>
-						<li>
-							<a href="../charts/inline.html"><i class="fa fa-circle-o"></i>Industri</a>
-						</li>
-						<li>
-							<a href="../charts/inline.html"><i class="fa fa-circle-o"></i>Informatika</a>
-						</li>
-					</ul>
-				</li> -->
 				<li class="active"><a href="<?= base_url('dasboard/matakuliah') ?>"><i class="fa fa-book"></i> <span>Mata Kuliah</span></a></li>
 				<li><a href="<?= base_url('dasboard/kelas') ?>"><i class="fa fa-free-code-camp"></i> <span>Kelas</span></a></li>
+				<li><a href="<?= base_url('dasboard/administrator') ?>"><i class="fa fa-user"></i> <span>Admintrator</span></a></li>
 				<li><a href="<?= base_url('dasboard/konfigurasi') ?>"><i class="fa fa-cogs"></i> <span>Konfigurasi</span></a></li>
 				<li><a href="<?= base_url('dasboard/dokumentasi') ?>"><i class="fa fa-info-circle"></i> <span>Documentasi</span></a></li>
 			</ul>
@@ -259,7 +234,7 @@
 												<button type="button" data-toggle="modal" data-target="#modal-default<?= $m['id_mk'] ?>" class="btn btn-primary">
 													<i class="fa fa-eye "></i>
 												</button>
-												<a href="<?= base_url('dasboard/mk_delete') ?>/<?= $m['id_mk'] ?>"  class="btn btn-danger tombol-hapus">
+												<a href="<?= base_url('dasboard/mk_delete') ?>/<?= $m['id_mk'] ?>" class="btn btn-danger tombol-hapus">
 													<i class="fa fa-trash"></i>
 												</a>
 											</td>
