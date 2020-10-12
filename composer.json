@@ -1,0 +1,15 @@
+{
+    "name": "ibnuhajar/fakultasteknik",
+    "description": "ini adalah aplikasi absensi untuk dosen fakultas teknik",
+    "authors": [
+        {
+            "name": "ibnuhajar",
+            "email": "ibnuhajardewantara62@gmail.com"
+        }
+    ],
+    "require": {
+        "codeigniter/framework": "^3.1",
+        "almasaeed2010/adminlte": "~2.4",
+        "twitter/bootstrap": "^4.5"
+    }
+}
