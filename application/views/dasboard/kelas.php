@@ -126,8 +126,8 @@
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>pengajar</th>
-										<th>mata kuliah</th>
+										<th>Pengajar</th>
+										<th>Mata kuliah</th>
 										<th>Jurusan</th>
 										<th>Pertemuan</th>
 										<th>Action</th>
@@ -149,7 +149,7 @@
 												<button type="button" data-toggle="modal" data-target="#modal-default<?= $k['id'] ?>" class="btn btn-primary">
 													<i class="fa fa-edit "></i>
 												</button>
-												<a href="<?= base_url('dasboard/k_delete') ?>/<?= $k['id'] ?>"  class="btn btn-danger tombol-hapus">
+												<a href="<?= base_url('dasboard/k_delete') ?>/<?= $k['id'] ?>" class="btn btn-danger tombol-hapus">
 													<i class="fa fa-trash"></i>
 												</a>
 											</td>
@@ -243,8 +243,8 @@
 								<tfoot>
 									<tr>
 										<th>No</th>
-										<th>Nama Matakuliah</th>
-										<th>Sks</th>
+										<th>Pengajar</th>
+										<th>Mata kuliah</th>
 										<th>Semester</th>
 										<th>Jurusan</th>
 									</tr>
