@@ -184,61 +184,61 @@
 						</div>
 						<div class="tab-content">
 							<div class="box-body active tab-pane" id="profile">
-								<form class="form-horizontal" method="POST" action="">
+								<form class="form-horizontal" method="POST" enctype="multipart/form-data" action="<?= base_url('administrator/admin') ?>">
 									<div class="form-group">
-										<label for="inputName" class="col-sm-2 control-label">Nama</label>
+										<label for="nama" class="col-sm-2 control-label">Nama</label>
 
 										<div class="col-sm-10">
-											<input type="email" class="form-control" id="inputName" placeholder="Name">
+											<input type="text" class="form-control" name="nama" id="nama" placeholder="Name">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+										<label for="email" class="col-sm-2 control-label">Email</label>
 
 										<div class="col-sm-10">
-											<input type="email" class="form-control" id="inputEmail" placeholder="Email">
+											<input type="email" class="form-control" name="email" id="email" placeholder="Email">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputName" class="col-sm-2 control-label">Username</label>
+										<label for="username" class="col-sm-2 control-label">Username</label>
 
 										<div class="col-sm-10">
-											<input type="text" class="form-control" id="inputName" placeholder="Username">
+											<input type="text" class="form-control" name="username" id="username" placeholder="Username">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputName" class="col-sm-2 control-label">Password</label>
+										<label for="password" class="col-sm-2 control-label">Password</label>
 
 										<div class="col-sm-10">
-											<input type="text" class="form-control" id="inputName" placeholder="Username">
+											<input type="password" class="form-control" name="password" id="password" placeholder="Password">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputExperience" class="col-sm-2 control-label">Pendidikan</label>
+										<label for="pendidikan" class="col-sm-2 control-label">Pendidikan</label>
 
 										<div class="col-sm-10">
-											<textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+											<textarea class="form-control" name="pendidikan" id="pendidikan" placeholder="Pendidikan"></textarea>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputExperience" class="col-sm-2 control-label">Alamat</label>
+										<label for="alamat" class="col-sm-2 control-label">Alamat</label>
 
 										<div class="col-sm-10">
-											<textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+											<textarea class="form-control" name="alamat" id="alamat" placeholder="Alamat"></textarea>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputExperience" class="col-sm-2 control-label">Notes</label>
+										<label for="note" class="col-sm-2 control-label">Notes</label>
 
 										<div class="col-sm-10">
-											<textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+											<textarea class="form-control" name="note" id="note" placeholder="Note"></textarea>
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="exampleInputFile" class="col-sm-2 control-label">File Foto</label>
+										<label for="foto" class="col-sm-2 control-label">File Foto</label>
 										<div class="col-sm-10">
-											<input  type="file" id="exampleInputFile">
+											<input type="file" name="foto" id="foto">
 										</div>
 									</div>
 									<div class="form-group">
@@ -249,19 +249,19 @@
 								</form>
 							</div>
 							<div class="box-body tab-pane" id="reset">
-								<form class="form-horizontal" method="POST" action="">
+								<form class="form-horizontal" method="POST" action="<?= base_url('administrator/reset') ?>">
 									<div class="form-group">
-										<label for="inputName" class="col-sm-2 control-label">Username</label>
+										<label for="username" class="col-sm-2 control-label">Username</label>
 
 										<div class="col-sm-10">
-											<input type="text" class="form-control" id="inputName" placeholder="Username">
+											<input type="text" class="form-control" name="username" id="username" placeholder="Username">
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputName" class="col-sm-2 control-label">Password</label>
+										<label for="password" class="col-sm-2 control-label">Password</label>
 
 										<div class="col-sm-10">
-											<input type="text" class="form-control" id="inputName" placeholder="Username">
+											<input type="text" class="form-control" name="password" id="password" placeholder="Password">
 										</div>
 									</div>
 									<div class="form-group">
