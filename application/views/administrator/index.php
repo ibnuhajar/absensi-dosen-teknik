@@ -265,10 +265,10 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="inputName" class="col-sm-2 control-label">Repassword</label>
+										<label for="repassword" class="col-sm-2 control-label">Repassword</label>
 
 										<div class="col-sm-10">
-											<input type="text" class="form-control" id="inputName" placeholder="Username">
+											<input type="text" class="form-control" name="repassword" id="repassword" placeholder="Username">
 										</div>
 									</div>
 									<div class="form-group">
