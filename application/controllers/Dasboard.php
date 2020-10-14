@@ -142,7 +142,7 @@ class Dasboard extends CI_Controller
 			$this->load->view('template/footer', $data);
 		} else {
 			$this->Dasboard_model->insert_p();
-			$this->session->set_flashdata('massage','ditambah');
+			$this->session->set_flashdata('massage', 'ditambah');
 			redirect('dasboard/pengajar');
 		}
 	}
@@ -150,7 +150,7 @@ class Dasboard extends CI_Controller
 	public function p_delete($id)
 	{
 		$this->Dasboard_model->p_hapus($id);
-		$this->session->set_flashdata('massage','dihapus');
+		$this->session->set_flashdata('massage', 'dihapus');
 		redirect('dasboard/pengajar');
 	}
 
@@ -189,7 +189,7 @@ class Dasboard extends CI_Controller
 			$this->load->view('dasboard/kelas', $data);
 			$this->load->view('template/footer', $data);
 		} else {
-			$this->session->set_flashdata('massage','ditambah');
+			$this->session->set_flashdata('massage', 'ditambah');
 			$this->Dasboard_model->k_insert();
 			redirect('dasboard/kelas');
 		}
@@ -219,7 +219,7 @@ class Dasboard extends CI_Controller
 			$this->load->view('template/footer', $data);
 		} else {
 			$this->Dasboard_model->k_update();
-			$this->session->set_flashdata('massage','diubah');
+			$this->session->set_flashdata('massage', 'diubah');
 			redirect('dasboard/kelas');
 		}
 	}
@@ -227,7 +227,7 @@ class Dasboard extends CI_Controller
 	public function k_delete($id)
 	{
 		$this->Dasboard_model->k_hapus($id);
-		$this->session->set_flashdata('massage','dihapus');
+		$this->session->set_flashdata('massage', 'dihapus');
 		redirect('dasboard/kelas');
 	}
 }

@@ -190,6 +190,7 @@
 
 										<div class="col-sm-10">
 											<input type="text" class="form-control" name="nama" id="nama" placeholder="Name">
+											<small class="text-red"><?= form_error('nama'); ?></small>
 										</div>
 									</div>
 									<div class="form-group">
@@ -197,6 +198,7 @@
 
 										<div class="col-sm-10">
 											<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+											<small class="text-red"><?= form_error('email'); ?></small>
 										</div>
 									</div>
 									<div class="form-group">
@@ -204,6 +206,7 @@
 
 										<div class="col-sm-10">
 											<input type="text" class="form-control" name="username" id="username" placeholder="Username">
+											<small class="text-red"><?= form_error('username'); ?></small>
 										</div>
 									</div>
 									<div class="form-group">
@@ -211,6 +214,7 @@
 
 										<div class="col-sm-10">
 											<input type="password" class="form-control" name="password" id="password" placeholder="Password">
+											<small class="text-red"><?= form_error('password'); ?></small>
 										</div>
 									</div>
 									<div class="form-group">
@@ -218,6 +222,7 @@
 
 										<div class="col-sm-10">
 											<textarea class="form-control" name="pendidikan" id="pendidikan" placeholder="Pendidikan"></textarea>
+											<small class="text-red"><?= form_error('pendidikan'); ?></small>
 										</div>
 									</div>
 									<div class="form-group">
@@ -225,6 +230,7 @@
 
 										<div class="col-sm-10">
 											<textarea class="form-control" name="alamat" id="alamat" placeholder="Alamat"></textarea>
+											<small class="text-red"><?= form_error('alamat'); ?></small>
 										</div>
 									</div>
 									<div class="form-group">
@@ -232,6 +238,7 @@
 
 										<div class="col-sm-10">
 											<textarea class="form-control" name="note" id="note" placeholder="Note"></textarea>
+											<small class="text-red"><?= form_error('note'); ?></small>
 										</div>
 									</div>
 
@@ -255,6 +262,7 @@
 
 										<div class="col-sm-10">
 											<input type="text" class="form-control" name="username" id="username" placeholder="Username">
+											<small class="text-red"><?= form_error('username'); ?></small>
 										</div>
 									</div>
 									<div class="form-group">
@@ -262,6 +270,8 @@
 
 										<div class="col-sm-10">
 											<input type="text" class="form-control" name="password" id="password" placeholder="Password">
+											<small class="text-red"><?= form_error('password'); ?></small>
+
 										</div>
 									</div>
 									<div class="form-group">
@@ -269,9 +279,11 @@
 
 										<div class="col-sm-10">
 											<input type="text" class="form-control" name="repassword" id="repassword" placeholder="Username">
+											<small class="text-red"><?= form_error('repassword'); ?></small>
 										</div>
 									</div>
 									<div class="form-group">
+										<input type="hidden" name="date" value="<?= date('Y-m-d') ?>">
 										<div class="col-sm-offset-2 col-sm-10">
 											<button type="submit" class="btn btn-danger">Reset</button>
 										</div>

@@ -1,5 +1,4 @@
 const flashdata = $('.flash-data').data('flashdata')
-console.log(flashdata)
 
 if (flashdata) {
 	Swal.fire({
@@ -8,7 +7,7 @@ if (flashdata) {
 		text: `Data Berhasil ${flashdata}`,
 		type: 'success',
 		position: 'top',
-		width:500,
+		width: 500,
 		heightAuto: false,
 		showConfirmButton: false,
 		timer: 2000,

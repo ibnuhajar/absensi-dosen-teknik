@@ -15,7 +15,7 @@ class Administrator extends CI_Controller {
 
 	public function admin()
 	{
-		$this->form_validation->set_rules('name', 'Name', 'trim|required');
+		$this->form_validation->set_rules('nama', 'Name', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
@@ -32,7 +32,35 @@ class Administrator extends CI_Controller {
 			$this->load->view('administrator/index', $data);
 			$this->load->view('template/footer', $data);
 		} else {
-			
+			$image = $_FILES['foto'];
+
+			if ($image == null ) {
+				$data['judul'] 		= 'Site - administrator';
+				$data['status'] 	= 'active';
+				$data['page'] 		= 'Administrator';
+				$this->load->view('template/header', $data);
+				$this->load->view('administrator/index', $data);
+				$this->load->view('template/footer', $data);
+			} else {
+				$config['upload_path']          = './assets/img/';
+				$config['allowed_types']        = 'jpg|png';
+				$config['file_name']            = 'admin';
+
+				$this->upload->initialize($config);
+
+				if ($this->upload->do_upload('foto')) {
+					$images = $this->upload->data('file_name');
+					$this->Administrator_model->admin($images);
+					// flash data
+					$this->session->set_flashdata('massage', 'diubah');
+					redirect('administrator');
+				}else {
+					// flash data
+					$this->session->set_flashdata('massage', '<div class="alert alert-danger" role="alert"><strong>Oh Tidak !!!</strong> Gagal di perbaharui .</div>');
+					redirect('administrator');
+					
+				}
+			}
 		}
 		
 	}
