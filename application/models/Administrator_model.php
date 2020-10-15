@@ -48,7 +48,6 @@
 		$password = htmlspecialchars($this->input->post('password',true));
 		
 		$this->db->where('id',$this->input->post('id',true));
-		// $this->db->set('username',$username);
 		$this->db->set('password',$password);
 		$this->db->update('admin');
 	}

@@ -6,12 +6,14 @@ class Dasboard extends CI_Controller
 
 	public function index()
 	{
-		$data['judul']		= "Site - Dasboard";
-		$data['status'] 	= 'active';
-		$data['page'] 		= 'Dasboard';
-		$data['jurusan'] 	= $this->Dasboard_model->getCount('jurusan');
-		$data['matakuliah'] = $this->Dasboard_model->getCount('mata_kuliah');
-		$data['dosen'] 		= $this->Dasboard_model->getCount('pengajar');
+		$data['judul']			= "Site - Dasboard";
+		$data['status'] 		= 'active';
+		$data['page'] 			= 'Dasboard';
+		$data['jurusan'] 		= $this->Dasboard_model->getCount('jurusan');
+		$data['matakuliah'] 	= $this->Dasboard_model->getCount('mata_kuliah');
+		$data['dosen'] 			= $this->Dasboard_model->getCount('pengajar');
+		$data['administrator'] 	= $this->Dasboard_model->getCount('admin');
+		$data['admin']			= $this->Administrator_model->get('admin');
 		$this->load->view('template/header', $data);
 		$this->load->view('dasboard/index', $data);
 		$this->load->view('template/footer', $data);
@@ -27,6 +29,8 @@ class Dasboard extends CI_Controller
 		$data['status'] 	= 'active';
 		$data['page'] 		= 'Jurusan';
 		$data['jurusan'] 	= $this->Dasboard_model->getAll('jurusan');
+		$data['admin']		= $this->Administrator_model->get('admin');
+
 		$this->load->view('template/header', $data);
 		$this->load->view('dasboard/jurusan', $data);
 		$this->load->view('template/footer', $data);
@@ -43,6 +47,8 @@ class Dasboard extends CI_Controller
 			$data['status'] 	= 'active';
 			$data['page'] 		= 'Jurusan';
 			$data['jurusan'] 	= $this->Dasboard_model->getAll('jurusan');
+			$data['admin']		= $this->Administrator_model->get('admin');
+
 			$this->load->view('template/header', $data);
 			$this->load->view('dasboard/jurusan', $data);
 			$this->load->view('template/footer', $data);
@@ -65,6 +71,8 @@ class Dasboard extends CI_Controller
 		$data['page'] 		= 'Mata Kuliah';
 		$data['jurusan'] 	= $this->Dasboard_model->getAll('jurusan');
 		$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
+		$data['admin']		= $this->Administrator_model->get('admin');
+
 		$this->load->view('template/header', $data);
 		$this->load->view('dasboard/matakuliah', $data);
 		$this->load->view('template/footer', $data);
@@ -86,6 +94,8 @@ class Dasboard extends CI_Controller
 			$data['page'] 		= 'Mata Kuliah';
 			$data['jurusan'] 	= $this->Dasboard_model->getAll('jurusan');
 			$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
+			$data['admin']		= $this->Administrator_model->get('admin');
+
 			$this->load->view('template/header', $data);
 			$this->load->view('dasboard/matakuliah', $data);
 			$this->load->view('template/footer', $data);
@@ -115,6 +125,8 @@ class Dasboard extends CI_Controller
 		$data['jurusan'] 	= $this->Dasboard_model->getAll('jurusan');
 		$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
 		$data['pengajar'] 	= $this->Dasboard_model->getAll('pengajar');
+		$data['admin']		= $this->Administrator_model->get('admin');
+
 		$this->load->view('template/header', $data);
 		$this->load->view('dasboard/pengajar', $data);
 		$this->load->view('template/footer', $data);
@@ -137,6 +149,8 @@ class Dasboard extends CI_Controller
 			$data['jurusan'] 	= $this->Dasboard_model->getAll('jurusan');
 			$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
 			$data['pengajar'] 	= $this->Dasboard_model->getAll('pengajar');
+			$data['admin']		= $this->Administrator_model->get('admin');
+
 			$this->load->view('template/header', $data);
 			$this->load->view('dasboard/pengajar', $data);
 			$this->load->view('template/footer', $data);
@@ -165,6 +179,8 @@ class Dasboard extends CI_Controller
 		$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
 		$data['pengajar'] 	= $this->Dasboard_model->getAll('pengajar');
 		$data['kelas'] 		= $this->Dasboard_model->getAll('kelas');
+		$data['admin']		= $this->Administrator_model->get('admin');
+
 		$this->load->view('template/header', $data);
 		$this->load->view('dasboard/kelas', $data);
 		$this->load->view('template/footer', $data);
@@ -185,6 +201,8 @@ class Dasboard extends CI_Controller
 			$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
 			$data['pengajar'] 	= $this->Dasboard_model->getAll('pengajar');
 			$data['kelas'] 		= $this->Dasboard_model->getAll('kelas');
+			$data['admin']		= $this->Administrator_model->get('admin');
+
 			$this->load->view('template/header', $data);
 			$this->load->view('dasboard/kelas', $data);
 			$this->load->view('template/footer', $data);
@@ -206,6 +224,7 @@ class Dasboard extends CI_Controller
 		$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
 		$data['pengajar'] 	= $this->Dasboard_model->getAll('pengajar');
 		$data['kelas'] 		= $this->Dasboard_model->getAll('kelas');
+		$data['admin']		= $this->Administrator_model->get('admin');
 
 		$this->form_validation->set_rules('matakuliah', 'Mata Kuliah', 'trim|required');
 		$this->form_validation->set_rules('pengajar', 'Pengajar', 'trim|required');

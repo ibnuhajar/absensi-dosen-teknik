@@ -24,22 +24,22 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
 							<!-- pada tag img di isi oleh source img yang di upload dengan ukuran 160x160 -->
-							<img src="<?= base_url('assets/adminLTE/') ?>dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+							<img src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>" class="user-image" alt="User Image">
 							<!-- tag p di isi dengan nama user yang sedang login -->
 
-							<span class="hidden-xs">Alexander Pierce</span>
+							<span class="hidden-xs"><?= ucfirst($admin['nama']) ?> </span>
 						</a>
 						<ul class="dropdown-menu">
 							<!-- User image -->
 							<li class="user-header">
 								<!-- pada tag img di isi oleh source img yang di upload dengan ukuran 160x160 -->
-								<img src="<?= base_url('assets/adminLTE/') ?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+								<img src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>" class="img-circle" alt="User Image">
 
 								<!-- tag p di isi dengan nama user yang sedang login -->
 								<!-- pada tag p di isi oleh nama user dan di tag small tahun mengabdi -->
 								<p>
-									Alexander Pierce - Web Developer
-									<small>Member since Nov. 2012</small>
+									<?= ucfirst($admin['nama']) ?> - <?= $admin['role'] ?>
+									<small><?= ucfirst($admin['alamat']) ?></small>
 								</p>
 							</li>
 
@@ -47,7 +47,7 @@
 							<li class="user-footer">
 								<div class="pull-left">
 									<!-- tag a untuk atribut href di isi dengan source edit profile -->
-									<a href="#" class="btn btn-default btn-flat">Profile</a>
+									<a href="<?= base_url('administrator') ?>" class="btn btn-default btn-flat">Profile</a>
 								</div>
 								<div class="pull-right">
 									<!--di tag a untuk atribut href di isi dengan source logout  -->
@@ -67,16 +67,16 @@
 		<!-- sidebar: style can be found in sidebar.less -->
 		<section class="sidebar">
 			<!-- Sidebar user panel -->
-			<div class="user-panel">
+			<div class="user-panel ">
 				<div class="pull-left image">
 					<!-- tag img di isi dengan source upload foto -->
-					<img src="<?= base_url('assets/adminLTE/') ?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+					<img src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>" class="img-circle" alt="User Image">
 				</div>
 				<div class="pull-left info">
 					<!-- tag p di isi dengan nama user yang sedang login -->
-					<p>Alexander Pierce</p>
+					<p><?= ucfirst($admin['nama']) ?> </p>
 					<!-- tag small di isi dengan dosen matakuliah -->
-					<p><small>Dosen Mk</small></p>
+					<p><small><?= $admin['role'] ?></small></p>
 				</div>
 			</div>
 
@@ -171,14 +171,14 @@
 					<div class="small-box bg-red">
 						<div class="inner">
 							<!-- admin aplikasi -->
-							<h3>65</h3>
+							<h3><?= $administrator; ?> </h3>
 
 							<p>Administrator</p>
 						</div>
 						<div class="icon">
 							<i class="ion ion-person"></i>
 						</div>
-						<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						<a href="<?= base_url('administrator'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 				<!-- ./col -->
