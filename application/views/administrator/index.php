@@ -24,7 +24,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
 							<!-- pada tag img di isi oleh source img yang di upload dengan ukuran 160x160 -->
-							<img src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>" width="30" height="30" class="img-circle" alt="User Image">
+							<img src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>"  class="user-image" alt="User Image">
 							<!-- tag p di isi dengan nama user yang sedang login -->
 
 							<span class="hidden-xs"><?= $admin['nama'] ?> </span>
@@ -33,7 +33,7 @@
 							<!-- User image -->
 							<li class="user-header">
 								<!-- pada tag img di isi oleh source img yang di upload dengan ukuran 160x160 -->
-								<img src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>" width="30" height="30" class="img-circle" alt="User Image">
+								<img src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>"  class="img-circle" alt="User Image">
 
 								<!-- tag p di isi dengan nama user yang sedang login -->
 								<!-- pada tag p di isi oleh nama user dan di tag small tahun mengabdi -->
@@ -121,7 +121,7 @@
 					<!-- Profile Image -->
 					<div class="box box-primary">
 						<div class="box-body box-profile">
-							<img class="profile-user-img img-responsive img-circle" width="30" height="30" src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>" alt="User profile picture">
+							<img class="profile-user-img img-responsive img-circle" src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>" alt="User profile picture">
 
 							<h3 class="profile-username text-center"><?= $admin['nama'] ?> </h3>
 
