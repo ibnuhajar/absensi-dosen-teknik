@@ -8,6 +8,7 @@ class Administrator extends CI_Controller {
 		$data['judul'] 		= 'Site - administrator';
 		$data['status'] 	= 'active';
 		$data['page'] 		= 'Administrator';
+		$data['admin']		= $this->Administrator_model->get('admin');
 		$this->load->view('template/header', $data);
 		$this->load->view('administrator/index', $data);
 		$this->load->view('template/footer', $data);
@@ -28,6 +29,7 @@ class Administrator extends CI_Controller {
 			$data['judul'] 		= 'Site - administrator';
 			$data['status'] 	= 'active';
 			$data['page'] 		= 'Administrator';
+			$data['admin']		= $this->Administrator_model->get('admin');
 			$this->load->view('template/header', $data);
 			$this->load->view('administrator/index', $data);
 			$this->load->view('template/footer', $data);
@@ -38,6 +40,7 @@ class Administrator extends CI_Controller {
 				$data['judul'] 		= 'Site - administrator';
 				$data['status'] 	= 'active';
 				$data['page'] 		= 'Administrator';
+				$data['admin']		= $this->Administrator_model->get('admin');
 				$this->load->view('template/header', $data);
 				$this->load->view('administrator/index', $data);
 				$this->load->view('template/footer', $data);
@@ -69,17 +72,20 @@ class Administrator extends CI_Controller {
 	{
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
-		$this->form_validation->set_rules('repassword', 'Repassword', 'trim|required');
+		$this->form_validation->set_rules('repassword', 'Repassword', 'trim|required|matches[password]');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data['judul'] 		= 'Site - administrator';
 			$data['status'] 	= 'active';
 			$data['page'] 		= 'Administrator';
+			$data['admin']		= $this->Administrator_model->get('admin');
 			$this->load->view('template/header', $data);
 			$this->load->view('administrator/index', $data);
 			$this->load->view('template/footer', $data);
 		} else {
-			
+			$this->Administrator_model->reset();
+			$this->session->set_flashdata('massage', 'diubah');
+			redirect('administrator');
 		}
 	}
 

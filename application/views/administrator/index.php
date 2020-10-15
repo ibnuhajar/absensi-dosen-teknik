@@ -121,21 +121,21 @@
 					<!-- Profile Image -->
 					<div class="box box-primary">
 						<div class="box-body box-profile">
-							<img class="profile-user-img img-responsive img-circle" src="" alt="User profile picture">
+							<img class="profile-user-img img-responsive img-circle" width="10" height="10" src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>" alt="User profile picture">
 
-							<h3 class="profile-username text-center">Nama</h3>
+							<h3 class="profile-username text-center"><?= $admin['nama'] ?> </h3>
 
-							<p class="text-muted text-center">Administrator</p>
+							<p class="text-muted text-center"><?= $admin['role'] ?></p>
 
 							<ul class="list-group list-group-unbordered">
 								<li class="list-group-item">
-									<b>Nama</b> <a class="pull-right">1,322</a>
+									<b>Email</b> <a class="pull-right"><?= $admin['email'] ?></a>
 								</li>
 								<li class="list-group-item">
-									<b>Username</b> <a class="pull-right">543</a>
+									<b>Username</b> <a class="pull-right"><?= $admin['username'] ?></a>
 								</li>
 								<li class="list-group-item">
-									<b>Role</b> <a class="pull-right">13,287</a>
+									<b>Role</b> <a class="pull-right"><?= $admin['role'] ?></a>
 								</li>
 							</ul>
 						</div>
@@ -153,20 +153,24 @@
 							<strong><i class="fa fa-book margin-r-5"></i> Pendidikan</strong>
 
 							<p class="text-muted">
-								B.S. in Computer Science from the University of Tennessee at Knoxville
+								<?= $admin['pendidikan'] ?>
 							</p>
 
 							<hr>
 
 							<strong><i class="fa fa-map-marker margin-r-5"></i>Alamat</strong>
 
-							<p class="text-muted">Malibu, California</p>
+							<p class="text-muted">
+								<?= $admin['alamat'] ?>
+							</p>
 
 							<hr>
 
 							<strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+							<p>
+								<?= $admin['note'] ?>
+							</p>
 						</div>
 						<!-- /.box-body -->
 					</div>
@@ -186,6 +190,7 @@
 							<div class="box-body active tab-pane" id="profile">
 								<form class="form-horizontal" method="POST" enctype="multipart/form-data" action="<?= base_url('administrator/admin') ?>">
 									<div class="form-group">
+										<input type="hidden" name="id" value="<?= 1 ?>">
 										<label for="nama" class="col-sm-2 control-label">Nama</label>
 
 										<div class="col-sm-10">
@@ -243,6 +248,8 @@
 									</div>
 
 									<div class="form-group">
+										<input type="hidden" name="role" value="<?php echo 'Administrator' ?>">
+										<input type="hidden" name="date" value="<?= date('Y-m-d') ?>">
 										<label for="foto" class="col-sm-2 control-label">File Foto</label>
 										<div class="col-sm-10">
 											<input type="file" name="foto" id="foto">
@@ -258,8 +265,8 @@
 							<div class="box-body tab-pane" id="reset">
 								<form class="form-horizontal" method="POST" action="<?= base_url('administrator/reset') ?>">
 									<div class="form-group">
+										<input type="hidden" name="id" value="<?= 1 ?>">
 										<label for="username" class="col-sm-2 control-label">Username</label>
-
 										<div class="col-sm-10">
 											<input type="text" class="form-control" name="username" id="username" placeholder="Username">
 											<small class="text-red"><?= form_error('username'); ?></small>
