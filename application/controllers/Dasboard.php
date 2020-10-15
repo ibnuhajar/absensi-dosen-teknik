@@ -213,8 +213,6 @@ class Dasboard extends CI_Controller
 		}
 	}
 
-
-
 	public function k_ubah()
 	{
 		$data['judul']		= "Site - Kelas";
@@ -248,6 +246,24 @@ class Dasboard extends CI_Controller
 		$this->Dasboard_model->k_hapus($id);
 		$this->session->set_flashdata('massage', 'dihapus');
 		redirect('dasboard/kelas');
+	}
+
+	public function print($id)
+	{
+		$data['judul']		= 'Print laporan';
+		$data['laporan'] 	= $this->Dasboard_model->getById('kelas',$id);
+	
+		$this->load->view('dasboard/print', $data);
+		
+		$paper_size 	= 'A4';
+		$orientation 	= 'landscape';
+		$html			= $this->output->get_output();
+
+		$this->dompdf->set_paper($paper_size, $orientation);
+		$this->dompdf->load_html($html);
+		$this->dompdf->render();
+		ob_clean();
+		$this->dompdf->stream("Detail Absensi Kelas.pdf", ['Attachment' => false]);
 	}
 }
 

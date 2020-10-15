@@ -144,7 +144,7 @@
 											<td><?= $k['jurusan'] ?></td>
 											<td><?= $k['absen'] ?></td>
 											<td>
-												<a href="" class="btn btn-success">
+												<a href="<?= base_url('dasboard/print') ?>/<?= $k['id'] ?>" class="btn btn-success">
 													<i class="fa fa-print"></i>
 												</a>
 												<button type="button" data-toggle="modal" data-target="#modal-default<?= $k['id'] ?>" class="btn btn-primary">

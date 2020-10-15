@@ -22,7 +22,7 @@ class Dasboard_model extends CI_Model
 
 	public function getById($table, $id)
 	{
-		$data = $this->db->get_where($table, $id)->row_array();
+		$data = $this->db->get_where($table, ["id" => $id])->row_array();
 		return $data;
 	}
 
