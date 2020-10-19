@@ -304,10 +304,6 @@
 				<!-- /.col -->
 			</div>
 		</section>
-		<!-- /.row -->
-		<!-- Main row -->
-		<!-- /.row (main row) -->
-		<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
 
