@@ -1,4 +1,6 @@
 <div class="login-box">
+	<div class="flash-data" data-flashdata="<?= $this->session->flashdata('massage'); ?>"></div>
+
 	<div class="login-logo">
 		<a href="<?= base_url() ?>"><b>Fakultas</b>Teknik</a>
 	</div>
@@ -25,7 +27,7 @@
 			</div>
 		</form>
 
-<br>
+		<br>
 
 		<a href="<?= base_url('auth/admin') ?>" class="text-center">Login Sebagai Admin</a>
 

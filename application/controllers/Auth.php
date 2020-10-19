@@ -7,7 +7,9 @@ class Auth extends CI_Controller
 
 	public function index()
 	{
-		$data['judul'] = 'Site - Absensi';
+		$data['judul'] 		= 'Site - Absensi';
+		$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
+		$data['pengajar'] 	= $this->Dasboard_model->getAll('pengajar');
 		$this->load->view('authtemplate/header', $data);
 		$this->load->view('auth/index', $data);
 		$this->load->view('authtemplate/footer');
@@ -56,6 +58,20 @@ class Auth extends CI_Controller
 				redirect('auth');
 			}
 		}
+	}
+
+	public function logout()
+	{
+		$data = [
+			'username',
+			'role'
+		];
+
+		
+		$this->session->unset_userdata($data);
+		$this->session->set_flashdata('massage', 'berhasil logout');
+		redirect('auth');
+		
 	}
 }
   

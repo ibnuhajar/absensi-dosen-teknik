@@ -7,7 +7,10 @@ class Administrator extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		
+		if (empty($this->session->userdata('username'))) {
+			$this->session->set_flashdata('message', 'Silahkan login dulu sebagai admin');
+			redirect('auth');
+		}
 	}
 	
 
