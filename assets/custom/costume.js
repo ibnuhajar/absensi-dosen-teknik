@@ -4,7 +4,7 @@ if (flashdata) {
 	Swal.fire({
 		icon: 'success',
 		title: 'Fakultas Teknik ',
-		text: `Data Berhasil ${flashdata}`,
+		text: `Berhasil ${flashdata}`,
 		type: 'success',
 		position: 'top',
 		width: 500,
