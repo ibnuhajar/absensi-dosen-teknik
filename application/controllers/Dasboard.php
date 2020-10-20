@@ -3,16 +3,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Dasboard extends CI_Controller
 {
-	
+
 	public function __construct()
 	{
 		parent::__construct();
 		if (empty($this->session->userdata('username'))) {
 			$this->session->set_flashdata('message', 'Silahkan login dulu sebagai admin');
-			redirect('auth'); 
+			redirect('auth');
 		}
 	}
-	
+
 
 	public function index()
 	{
@@ -23,7 +23,8 @@ class Dasboard extends CI_Controller
 		$data['matakuliah'] 	= $this->Dasboard_model->getCount('mata_kuliah');
 		$data['dosen'] 			= $this->Dasboard_model->getCount('pengajar');
 		$data['administrator'] 	= $this->Dasboard_model->getCount('admin');
-		$data['admin']			= $this->Administrator_model->get('admin');
+		$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+		
 		$this->load->view('template/header', $data);
 		$this->load->view('dasboard/index', $data);
 		$this->load->view('template/footer', $data);
@@ -39,7 +40,7 @@ class Dasboard extends CI_Controller
 		$data['status'] 	= 'active';
 		$data['page'] 		= 'Jurusan';
 		$data['jurusan'] 	= $this->Dasboard_model->getAll('jurusan');
-		$data['admin']		= $this->Administrator_model->get('admin');
+		$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('dasboard/jurusan', $data);
@@ -57,7 +58,7 @@ class Dasboard extends CI_Controller
 			$data['status'] 	= 'active';
 			$data['page'] 		= 'Jurusan';
 			$data['jurusan'] 	= $this->Dasboard_model->getAll('jurusan');
-			$data['admin']		= $this->Administrator_model->get('admin');
+			$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 
 			$this->load->view('template/header', $data);
 			$this->load->view('dasboard/jurusan', $data);
@@ -81,7 +82,7 @@ class Dasboard extends CI_Controller
 		$data['page'] 		= 'Mata Kuliah';
 		$data['jurusan'] 	= $this->Dasboard_model->getAll('jurusan');
 		$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
-		$data['admin']		= $this->Administrator_model->get('admin');
+		$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('dasboard/matakuliah', $data);
@@ -104,7 +105,7 @@ class Dasboard extends CI_Controller
 			$data['page'] 		= 'Mata Kuliah';
 			$data['jurusan'] 	= $this->Dasboard_model->getAll('jurusan');
 			$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
-			$data['admin']		= $this->Administrator_model->get('admin');
+			$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 
 			$this->load->view('template/header', $data);
 			$this->load->view('dasboard/matakuliah', $data);
@@ -135,7 +136,8 @@ class Dasboard extends CI_Controller
 		$data['jurusan'] 	= $this->Dasboard_model->getAll('jurusan');
 		$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
 		$data['pengajar'] 	= $this->Dasboard_model->getAll('pengajar');
-		$data['admin']		= $this->Administrator_model->get('admin');
+		$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+
 
 		$this->load->view('template/header', $data);
 		$this->load->view('dasboard/pengajar', $data);
@@ -159,7 +161,7 @@ class Dasboard extends CI_Controller
 			$data['jurusan'] 	= $this->Dasboard_model->getAll('jurusan');
 			$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
 			$data['pengajar'] 	= $this->Dasboard_model->getAll('pengajar');
-			$data['admin']		= $this->Administrator_model->get('admin');
+			$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 
 			$this->load->view('template/header', $data);
 			$this->load->view('dasboard/pengajar', $data);
@@ -189,7 +191,7 @@ class Dasboard extends CI_Controller
 		$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
 		$data['pengajar'] 	= $this->Dasboard_model->getAll('pengajar');
 		$data['kelas'] 		= $this->Dasboard_model->getAll('kelas');
-		$data['admin']		= $this->Administrator_model->get('admin');
+		$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('dasboard/kelas', $data);
@@ -232,7 +234,8 @@ class Dasboard extends CI_Controller
 		$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
 		$data['pengajar'] 	= $this->Dasboard_model->getAll('pengajar');
 		$data['kelas'] 		= $this->Dasboard_model->getAll('kelas');
-		$data['admin']		= $this->Administrator_model->get('admin');
+		$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+
 
 		$this->form_validation->set_rules('matakuliah', 'Mata Kuliah', 'trim|required');
 		$this->form_validation->set_rules('pengajar', 'Pengajar', 'trim|required');
@@ -261,10 +264,10 @@ class Dasboard extends CI_Controller
 	public function print($id)
 	{
 		$data['judul']		= 'Print laporan';
-		$data['laporan'] 	= $this->Dasboard_model->getById('kelas',$id);
-	
+		$data['laporan'] 	= $this->Dasboard_model->getById('kelas', $id);
+
 		$this->load->view('dasboard/print', $data);
-		
+
 		$paper_size 	= 'A4';
 		$orientation 	= 'landscape';
 		$html			= $this->output->get_output();

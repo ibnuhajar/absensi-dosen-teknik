@@ -8,7 +8,7 @@
 	<div class="login-box-body">
 		<p class="login-box-msg">Sign in untuk melakukan absensi</p>
 
-		<form action="<?= base_url('') ?>" method="post">
+		<form action="<?= base_url('auth/logindosen') ?>" method="post">
 			<div class="form-group has-feedback">
 				<input type="text" class="form-control" name="username" placeholder="username">
 				<span class="glyphicon glyphicon-envelope form-control-feedback"></span>

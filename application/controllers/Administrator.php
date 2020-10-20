@@ -1,9 +1,10 @@
-<?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Administrator extends CI_Controller {
+class Administrator extends CI_Controller
+{
 
-	
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -12,7 +13,7 @@ class Administrator extends CI_Controller {
 			redirect('auth');
 		}
 	}
-	
+
 
 
 	public function index()
@@ -20,7 +21,9 @@ class Administrator extends CI_Controller {
 		$data['judul'] 		= 'Site - administrator';
 		$data['status'] 	= 'active';
 		$data['page'] 		= 'Administrator';
-		$data['admin']		= $this->Administrator_model->get('admin');
+		$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+
+		// $data['admin']		= $this->Administrator_model->get('admin');
 		$this->load->view('template/header', $data);
 		$this->load->view('administrator/index', $data);
 		$this->load->view('template/footer', $data);
@@ -35,24 +38,25 @@ class Administrator extends CI_Controller {
 		$this->form_validation->set_rules('pendidikan', 'Pendidikan', 'trim|required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
 		$this->form_validation->set_rules('note', 'Note', 'trim|required');
-		
-		
+
+
 		if ($this->form_validation->run() == FALSE) {
 			$data['judul'] 		= 'Site - administrator';
 			$data['status'] 	= 'active';
 			$data['page'] 		= 'Administrator';
-			$data['admin']		= $this->Administrator_model->get('admin');
+			$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+
 			$this->load->view('template/header', $data);
 			$this->load->view('administrator/index', $data);
 			$this->load->view('template/footer', $data);
 		} else {
 			$image = $_FILES['foto'];
 
-			if ($image == null ) {
+			if ($image == null) {
 				$data['judul'] 		= 'Site - administrator';
 				$data['status'] 	= 'active';
 				$data['page'] 		= 'Administrator';
-				$data['admin']		= $this->Administrator_model->get('admin');
+				$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 				$this->load->view('template/header', $data);
 				$this->load->view('administrator/index', $data);
 				$this->load->view('template/footer', $data);
@@ -69,15 +73,13 @@ class Administrator extends CI_Controller {
 					// flash data
 					$this->session->set_flashdata('massage', 'diubah');
 					redirect('administrator');
-				}else {
+				} else {
 					// flash data
 					$this->session->set_flashdata('massage', '<div class="alert alert-danger" role="alert"><strong>Oh Tidak !!!</strong> Gagal di perbaharui .</div>');
 					redirect('administrator');
-					
 				}
 			}
 		}
-		
 	}
 
 	public function reset()
@@ -90,7 +92,7 @@ class Administrator extends CI_Controller {
 			$data['judul'] 		= 'Site - administrator';
 			$data['status'] 	= 'active';
 			$data['page'] 		= 'Administrator';
-			$data['admin']		= $this->Administrator_model->get('admin');
+			$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 			$this->load->view('template/header', $data);
 			$this->load->view('administrator/index', $data);
 			$this->load->view('template/footer', $data);
@@ -100,8 +102,6 @@ class Administrator extends CI_Controller {
 			redirect('administrator');
 		}
 	}
-
 }
 
 /* End of file Administrator.php */
-

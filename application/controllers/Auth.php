@@ -42,19 +42,19 @@ class Auth extends CI_Controller
 			$user = $this->db->get_where('admin', ['username' => $username])->row_array();
 			if ($user == true) {
 				if ($user['password'] == $password) {
-					$data =[
+					$data = [
 						'username' 	=> $user['username'],
 						'role'		=> $user['role']
-					];				
-					$this->session->set_userdata( $data );
+					];
+					$this->session->set_userdata($data);
 					$this->session->set_flashdata('massage', 'berhasil login');
 					redirect('dasboard');
-				}else {
-					$this->session->set_flashdata('massage', 'berhasil login');
+				} else {
+					$this->session->set_flashdata('massage', 'gagal login');
 					redirect('auth');
 				}
 			} else {
-				$this->session->set_flashdata('massage', 'berhasil login');
+				$this->session->set_flashdata('massage', 'gagal login');
 				redirect('auth');
 			}
 		}
@@ -66,13 +66,64 @@ class Auth extends CI_Controller
 			'username',
 			'role'
 		];
-
-		
 		$this->session->unset_userdata($data);
 		$this->session->set_flashdata('massage', 'berhasil logout');
 		redirect('auth');
-		
 	}
+
+
+
+
+public function logindosen()
+{
+		$this->form_validation->set_rules('username', 'Username', 'trim|required');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required');
+
+
+		if ($this->form_validation->run() == FALSE) {
+			$data['judul'] = 'Site - Admin';
+			$this->load->view('authtemplate/header', $data);
+			$this->load->view('auth/admin', $data);
+			$this->load->view('authtemplate/footer');
+		} else {
+
+			$username = htmlspecialchars($this->input->post('username', true));
+			$password = htmlspecialchars($this->input->post('password', true));
+
+			$user = $this->db->get_where('pengajar', ['username' => $username])->row_array();
+			if ($user == true) {
+				if ($user['password'] == $password) {
+					$data = [
+						'username' 			=> $user['username'],
+						'nama_pengajar'		=> $user['nama_pengajar'],
+						'jurusan_pengajar' 	=> $user['jurusan_pengajar']
+					];
+					$this->session->set_userdata($data);
+					$this->session->set_flashdata('massage', 'berhasil login');
+					redirect('absensi');
+				} else {
+					$this->session->set_flashdata('massage', 'gagal login');
+					redirect('auth');
+				}
+			} else {
+				$this->session->set_flashdata('massage', 'gagal login');
+				redirect('auth');
+			}
+		}
+}
+
+public function logoutdosen()
+{
+		$data = [
+			'username',
+			'nama_pengajar',
+			'jurusan_pengajar'
+		];
+		$this->session->unset_userdata($data);
+		$this->session->set_flashdata('massage', 'berhasil logout');
+		redirect('auth');
+}
+
 }
   
   /* End of file Auth.php */
