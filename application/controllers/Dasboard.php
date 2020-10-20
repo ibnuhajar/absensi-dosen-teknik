@@ -24,7 +24,7 @@ class Dasboard extends CI_Controller
 		$data['dosen'] 			= $this->Dasboard_model->getCount('pengajar');
 		$data['administrator'] 	= $this->Dasboard_model->getCount('admin');
 		$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
-		
+
 		$this->load->view('template/header', $data);
 		$this->load->view('dasboard/index', $data);
 		$this->load->view('template/footer', $data);
@@ -213,7 +213,7 @@ class Dasboard extends CI_Controller
 			$data['matakuliah'] = $this->Dasboard_model->getAll('mata_kuliah');
 			$data['pengajar'] 	= $this->Dasboard_model->getAll('pengajar');
 			$data['kelas'] 		= $this->Dasboard_model->getAll('kelas');
-			$data['admin']		= $this->Administrator_model->get('admin');
+			$data['admin']  	= $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
 
 			$this->load->view('template/header', $data);
 			$this->load->view('dasboard/kelas', $data);
