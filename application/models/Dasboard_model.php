@@ -149,6 +149,8 @@ class Dasboard_model extends CI_Model
 		$where = $this->db->where('id', $id);
 		$this->db->delete('kelas', $where);
 	}
+
+	
 }
 
 /* End of file Dasboard_model.php */

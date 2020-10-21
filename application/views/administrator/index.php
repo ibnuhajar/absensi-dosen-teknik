@@ -24,7 +24,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
 							<!-- pada tag img di isi oleh source img yang di upload dengan ukuran 160x160 -->
-							<img src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>"  class="user-image" alt="User Image">
+							<img src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>" class="user-image" alt="User Image">
 							<!-- tag p di isi dengan nama user yang sedang login -->
 
 							<span class="hidden-xs"><?= $admin['nama'] ?> </span>
@@ -33,7 +33,7 @@
 							<!-- User image -->
 							<li class="user-header">
 								<!-- pada tag img di isi oleh source img yang di upload dengan ukuran 160x160 -->
-								<img src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>"  class="img-circle" alt="User Image">
+								<img src="<?= base_url('assets/img/') ?><?= $admin['foto'] ?>" class="img-circle" alt="User Image">
 
 								<!-- tag p di isi dengan nama user yang sedang login -->
 								<!-- pada tag p di isi oleh nama user dan di tag small tahun mengabdi -->
@@ -51,7 +51,7 @@
 								</div>
 								<div class="pull-right">
 									<!--di tag a untuk atribut href di isi dengan source logout  -->
-									<a href="#" class="btn btn-default btn-flat">Sign out</a>
+									<a href="<?= base_url('auth/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
 								</div>
 							</li>
 						</ul>

@@ -83,7 +83,7 @@ public function logindosen()
 		if ($this->form_validation->run() == FALSE) {
 			$data['judul'] = 'Site - Admin';
 			$this->load->view('authtemplate/header', $data);
-			$this->load->view('auth/admin', $data);
+			$this->load->view('auth/index', $data);
 			$this->load->view('authtemplate/footer');
 		} else {
 
